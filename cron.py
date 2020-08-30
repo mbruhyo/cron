@@ -4,11 +4,11 @@ import redis
 import shutil
 
 if not os.path.isfile('config.ini'):
-    shutil.copyfile('config.sample.ini', 'config.ini')
     if not os.path.isfile('config.sample.ini'):
         print('Config generation failed! Please ensure all files were cloned/downloaded correctly and run cron again.')
         exit()
     else:
+        shutil.copyfile('config.sample.ini', 'config.ini')
         print('Config generated! Please edit the config and run cron again.')
         exit()
 
