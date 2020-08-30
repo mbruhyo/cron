@@ -49,8 +49,6 @@ db = sql.cursor()
 r = redis.Redis(host=RedisHost, port=RedisPort, db=0)
 
 def updateLeaderboards():
-    print('Calculating vanilla leaderboards for all modes...')
-
     r.delete(r.keys("ripple:leaderboard:*"))
 
     for gamemode in ['std', 'taiko', 'ctb', 'mania']:
@@ -70,11 +68,9 @@ def updateLeaderboards():
                     r.zincrby('hanayo:country_list', country, 1)
                     r.zadd(f'ripple:leaderboard:{gamemode}:{country}', userID, pp)
                 
-    print('Calculating vanilla leaderboards complete!')
+    print('Vanilla Leaderboards: Done!')
 
 def updateLeaderboardsRX():
-    print('Calculating relax leaderboards for compatible modes...')
-
     r.delete(r.keys("ripple:leaderboard_relax:*"))
 
     for gamemode in ['std', 'taiko', 'ctb']:
@@ -94,11 +90,9 @@ def updateLeaderboardsRX():
                     r.zincrby('hanayo:country_list', country, 1)
                     r.zadd(f'ripple:leaderboard_relax:{gamemode}:{country}', userID, pp)
                 
-    print('Calculating relax leaderboards complete!')
+    print('Relax Leaderboards: Done!')
 
 def updateLeaderboardsAuto():
-    print('Calculating autopilot leaderboards...')
-
     r.delete(r.keys("ripple:leaderboard_ap:*"))
 
     for gamemode in ['std', 'taiko', 'ctb']:
@@ -118,7 +112,7 @@ def updateLeaderboardsAuto():
                     r.zincrby('hanayo:country_list', country, 1)
                     r.zadd(f'ripple:leaderboard_ap:{gamemode}:{country}', userID, pp)
                 
-    print('Calculating autopilot leaderboards complete!')
+    print('Autopilot Leaderboards: Done!')
 
 if __name__ == '__main__':
     print('Starting cron...')
