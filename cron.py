@@ -21,18 +21,22 @@ for _line in config:
     cfg = line[0].rstrip()
     val = line[1].lstrip()
 
-if cfg == 'DBUsername':
-	DBUsername = val
-elif cfg == 'DBPassword':
-	DBPassword = val
-elif cfg == 'DBHost':
-	DBHost = val
-elif cfg == 'DBDatabase':
-	DBDatabase = val
-elif cfg == 'RedisHost':
-    RedisHost = val
-elif cfg == 'RedisPort':
-    RedisPort = val
+    if cfg == 'DBUsername':
+	    DBUsername = val
+    elif cfg == 'DBPassword':
+	    DBPassword = val
+    elif cfg == 'DBHost':
+	    DBHost = val
+    elif cfg == 'DBDatabase':
+	    DBDatabase = val
+    elif cfg == 'RedisHost':
+        RedisHost = val
+    elif cfg == 'RedisPort':
+        RedisPort = val
+
+if any(not cnf for cnf in [DBUsername, DBPassword, DBHost, DBDatabase, RedisHost, RedisPort]):
+    print('Not all configuration values have been found. Please make sure none are missing and run cron again.')
+    exit()
 
 # Grab required databases
 sql = mysql.connector.connect(user=DBUsername, password=DBPassword, host=DBHost, database=DBDatabase, autocommit=True)
