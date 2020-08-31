@@ -7,6 +7,8 @@ from modules.userCount import setUserCount
 from modules.expiredDonors import removeDonor
 from modules.donorBadges import checkBadges
 from modules.unrankedScores import removeUnrankedScores
+from modules.unrankedScoresRX import removeUnrankedScoresRX
+from modules.unrankedScoresAuto import removeUnrankedScoresAuto
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -30,4 +32,8 @@ if __name__ == '__main__':
         removeDonor()
         checkBadges()
         removeUnrankedScores()
+        if config.HasRelax:
+            removeUnrankedScoresRX()
+        if config.HasAutopilot:
+            removeUnrankedScoresAuto()
         print('Cron completed.')

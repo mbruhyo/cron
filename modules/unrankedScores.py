@@ -6,7 +6,7 @@ def removeUnrankedScores():
     for scores in remove:
         db.execute(f'SELECT song_name FROM beatmaps WHERE beatmap_md5 = "{scores[1]}"')
         name = db.fetchall()
-        print(f'Removing score ID {scores[0]} from {name[0][0]}...')
+        print(f'Removing Vanilla score ID {scores[0]} from {name[0][0]}...')
         db.execute(f'UPDATE scores SET pp = 0 WHERE id = {scores[0]}')
     
-    print('Unranked Scores: Done!')
+    print('Unranked Vanilla Scores: Done!')
