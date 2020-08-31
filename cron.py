@@ -4,6 +4,8 @@ from modules.updateLeaderboards import updateLeaderboards
 from modules.updateLeaderboardsRX import updateLeaderboardsRX
 from modules.updateLeaderboardsAuto import updateLeaderboardsAuto
 from modules.userCount import setUserCount
+from modules.expiredDonors import removeDonor
+from modules.donorBadges import checkBadges
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -24,4 +26,6 @@ if __name__ == '__main__':
         if config.HasAutopilot:
             updateLeaderboardsAuto()
         setUserCount()
+        removeDonor()
+        checkBadges()
         print('Cron completed.')
