@@ -3,6 +3,7 @@ import connections
 from modules.updateLeaderboards import updateLeaderboards
 from modules.updateLeaderboardsRX import updateLeaderboardsRX
 from modules.updateLeaderboardsAuto import updateLeaderboardsAuto
+from modules.userCount import setUserCount
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -22,4 +23,5 @@ if __name__ == '__main__':
             updateLeaderboardsRX()
         if config.HasAutopilot:
             updateLeaderboardsAuto()
+        setUserCount()
         print('Cron completed.')
