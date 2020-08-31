@@ -9,6 +9,7 @@ from modules.donorBadges import checkBadges
 from modules.unrankedScores import removeUnrankedScores
 from modules.unrankedScoresRX import removeUnrankedScoresRX
 from modules.unrankedScoresAuto import removeUnrankedScoresAuto
+from modules.qualifiedMaps import rankQualified
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -36,4 +37,6 @@ if __name__ == '__main__':
             removeUnrankedScoresRX()
         if config.HasAutopilot:
             removeUnrankedScoresAuto()
+        if config.RankQualifiedMaps:
+            rankQualified()
         print('Cron completed.')
