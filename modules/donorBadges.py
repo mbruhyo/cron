@@ -1,5 +1,4 @@
 import time
-import config
 from connections import *
 
 def checkBadges():

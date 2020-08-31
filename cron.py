@@ -6,6 +6,7 @@ from modules.updateLeaderboardsAuto import updateLeaderboardsAuto
 from modules.userCount import setUserCount
 from modules.expiredDonors import removeDonor
 from modules.donorBadges import checkBadges
+from modules.unrankedScores import removeUnrankedScores
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -28,4 +29,5 @@ if __name__ == '__main__':
         setUserCount()
         removeDonor()
         checkBadges()
+        removeUnrankedScores()
         print('Cron completed.')
