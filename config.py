@@ -61,6 +61,9 @@ def getConfig():
         elif cfg == 'PanelPrivileges':
             global PanelPrivileges
             PanelPrivileges = val
+        elif cfg == 'Webhook':
+            global Webhook
+            Webhook = val
 
     if any(not cnf for cnf in [DBUsername, DBPassword, DBHost, DBDatabase, RedisHost, RedisPort, HasRelax, HasAutopilot, DonorBadgeID, RankQualifiedMaps, HasFrozen, IsMisumi, PanelPrivileges]):
         global configValid
