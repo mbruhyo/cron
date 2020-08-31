@@ -46,14 +46,20 @@ def getConfig():
         elif cfg == 'HasAutopilot':
 	        global HasAutopilot
 	        HasAutopilot = val
+        elif cfg == 'HasFrozen':
+            global HasFrozen
+            HasFrozen = val
         elif cfg == 'DonorBadgeID':
 	        global DonorBadgeID
 	        DonorBadgeID = val
         elif cfg == 'RankQualifiedMaps':
             global RankQualifiedMaps
             RankQualifiedMaps = val
+        elif cfg == 'IsMisumi':
+            global IsMisumi
+            IsMisumi = val
 
-    if any(not cnf for cnf in [DBUsername, DBPassword, DBHost, DBDatabase, RedisHost, RedisPort, HasRelax, HasAutopilot, DonorBadgeID, RankQualifiedMaps]):
+    if any(not cnf for cnf in [DBUsername, DBPassword, DBHost, DBDatabase, RedisHost, RedisPort, HasRelax, HasAutopilot, DonorBadgeID, RankQualifiedMaps, HasFrozen, IsMisumi]):
         global configValid
         configValid = False
         print('Some config values are missing! Please check your config and try again.')

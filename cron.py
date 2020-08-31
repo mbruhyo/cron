@@ -10,6 +10,7 @@ from modules.unrankedScores import removeUnrankedScores
 from modules.unrankedScoresRX import removeUnrankedScoresRX
 from modules.unrankedScoresAuto import removeUnrankedScoresAuto
 from modules.qualifiedMaps import rankQualified
+from modules.expiredFrozen import freezeUsers
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -39,4 +40,6 @@ if __name__ == '__main__':
             removeUnrankedScoresAuto()
         if config.RankQualifiedMaps:
             rankQualified()
+        if config.HasFrozen:
+            freezeUsers()
         print('Cron completed.')
