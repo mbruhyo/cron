@@ -11,6 +11,7 @@ from modules.unrankedScoresRX import removeUnrankedScoresRX
 from modules.unrankedScoresAuto import removeUnrankedScoresAuto
 from modules.qualifiedMaps import rankQualified
 from modules.expiredFrozen import freezeUsers
+from modules.privilegesFix import fixPrivileges
 
 if __name__ == '__main__':
     print('Starting cron...')
@@ -42,4 +43,6 @@ if __name__ == '__main__':
             rankQualified()
         if config.HasFrozen:
             freezeUsers()
-        print('Cron completed.')
+        if config.PanelPrivileges:
+            fixPrivileges()
+        print('Cron completed!')

@@ -58,8 +58,11 @@ def getConfig():
         elif cfg == 'IsMisumi':
             global IsMisumi
             IsMisumi = val
+        elif cfg == 'PanelPrivileges':
+            global PanelPrivileges
+            PanelPrivileges = val
 
-    if any(not cnf for cnf in [DBUsername, DBPassword, DBHost, DBDatabase, RedisHost, RedisPort, HasRelax, HasAutopilot, DonorBadgeID, RankQualifiedMaps, HasFrozen, IsMisumi]):
+    if any(not cnf for cnf in [DBUsername, DBPassword, DBHost, DBDatabase, RedisHost, RedisPort, HasRelax, HasAutopilot, DonorBadgeID, RankQualifiedMaps, HasFrozen, IsMisumi, PanelPrivileges]):
         global configValid
         configValid = False
         print('Some config values are missing! Please check your config and try again.')
