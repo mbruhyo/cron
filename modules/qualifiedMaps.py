@@ -5,6 +5,6 @@ def rankQualified():
     maps = db.fetchall()
     for fix in maps:
         print(f'Ranking qualified map {fix[1]}...')
-        db.execute(f'UPDATE beatmaps SET ranked = 2 WHERE beatmap_md5 = {fix[0]}')
+        db.execute(f'UPDATE beatmaps SET ranked = 2 WHERE beatmap_md5 = "{fix[0]}"')
 
     print('Qualified Maps: Done!')
